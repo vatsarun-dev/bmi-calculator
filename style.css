@@ -1,0 +1,253 @@
+﻿:root {
+  --bg: #0a0f16;
+  --panel: #161d27;
+  --text: #ebf2ff;
+  --muted: #9badc7;
+  --line: #243042;
+  --accent: #56d7ff;
+  --accent-soft: #1e2f44;
+  --under: #7ea3ff;
+  --normal: #6af0c3;
+  --over: #ffbe67;
+  --obese: #ff7373;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 16% 20%, #1a2f49 0, transparent 38%),
+    radial-gradient(circle at 85% 80%, #162f3f 0, transparent 35%),
+    var(--bg);
+  padding: 24px;
+}
+
+.app {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card {
+  background: linear-gradient(150deg, #1a2230, var(--panel));
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+h1 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  letter-spacing: -0.02em;
+  color: #38bfff;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 8px;
+  margin-bottom: 22px;
+}
+
+.unit-switch {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.unit-btn {
+  border: 0;
+  background: #172333;
+  color: var(--muted);
+  font-weight: 600;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.unit-btn.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.field-row {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #33465f;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #111a25;
+  color: var(--text);
+}
+
+input:focus {
+  outline: 2px solid #4dbde8;
+  border-color: transparent;
+}
+
+.split-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  min-height: 20px;
+  color: #ff9db2;
+  font-size: 0.92rem;
+  margin-bottom: 8px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.primary,
+.secondary {
+  border-radius: 10px;
+  border: 0;
+  padding: 11px 14px;
+  font-weight: 700;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.primary:hover,
+.secondary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.primary {
+  background: linear-gradient(90deg, #39c9ff, #63e7d7);
+  color: #102031;
+}
+
+.secondary {
+  background: #1a2535;
+  color: #c6d7f0;
+}
+
+.result {
+  margin-top: 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  background: #121a26;
+  box-shadow: inset 0 0 0 1px rgba(125, 181, 225, 0.05);
+}
+
+.bmi-value {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.bmi-category {
+  font-weight: 600;
+}
+
+.category-table,
+.history {
+  margin-top: 22px;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+.category-table ul,
+.history ul {
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.category-table li,
+.history li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background: #121a26;
+  border-bottom: 1px solid var(--line);
+}
+
+.category-table li:last-child,
+.history li:last-child {
+  border-bottom: 0;
+}
+
+.status-under .bmi-value,
+.status-under .bmi-category {
+  color: var(--under);
+}
+
+.status-normal .bmi-value,
+.status-normal .bmi-category {
+  color: var(--normal);
+}
+
+.status-over .bmi-value,
+.status-over .bmi-category {
+  color: var(--over);
+}
+
+.status-obese .bmi-value,
+.status-obese .bmi-category {
+  color: var(--obese);
+}
+
+.history .empty {
+  justify-content: center;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .category-table li,
+  .history li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
